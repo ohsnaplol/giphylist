@@ -12,8 +12,16 @@ $(document).ready(function() {
       addTagToPage(inputValue);
     }
   })
+
+  $(".tagButtons").on("click", function () {
+    addGifs($(this).attr("id"));
+  })
 })
 
+function addGifs(title) {
+  
+}
+
 function addTagToPage(title) {
-  $("#tagList").append('<button class="btn" id="' + title + '">' + title + '</button>');
+  $("#tagList").append('<button class="btn tagButtons" id="' + title + '">' + title + '</button>');
 }

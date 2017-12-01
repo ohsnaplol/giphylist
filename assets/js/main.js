@@ -6,7 +6,7 @@ $(document).ready(function() {
   }
 
   $("#addBtn").on("click", function () {
-    inputValue = $("input").val()
+    inputValue = $("input").val().trim();
     if (!tagArray.includes(inputValue) && inputValue !== "") {
       tagArray.push(inputValue)
       addTagToPage(inputValue);
@@ -19,9 +19,24 @@ $(document).ready(function() {
 })
 
 function addGifs(title) {
-  
+  var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + title + "&api_key=dc6zaTOxFJmzC"
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).done(function(response) {
+    // var imgel = $("<img>");
+    // imgel.addClass("imgThumbnail");
+    // imgel.attr("src", response.embed_url);
+    // $("#gifDisplay").append(imgel);
+    $("#gifDisplay").append('<img class="imgThumbnail" src=' + response.embed_url + '>')
+  });
 }
 
 function addTagToPage(title) {
-  $("#tagList").append('<button class="btn tagButtons" id="' + title + '">' + title + '</button>');
+  var el = $("<button>");
+  el.addClass("btn");
+  el.addClass("tagButtons");
+  el.attr("id",title);
+  el.html(title);
+  $("#tagList").append(el);
 }

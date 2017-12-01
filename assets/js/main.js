@@ -24,11 +24,10 @@ function addGifs(title) {
     url: queryURL,
     method: "GET"
   }).done(function(response) {
-    // var imgel = $("<img>");
-    // imgel.addClass("imgThumbnail");
-    // imgel.attr("src", response.embed_url);
-    // $("#gifDisplay").append(imgel);
-    $("#gifDisplay").append('<img class="imgThumbnail" src=' + response.embed_url + '>')
+    var imgel = $("<img>");
+    imgel.addClass("imgThumbnail");
+    imgel.attr("href", response.data[0].embed_url);
+    $("#gifDisplay").append(imgel);
   });
 }
 

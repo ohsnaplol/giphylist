@@ -6,7 +6,7 @@ $(document).ready(function() {
   }
 
   $("#addBtn").on("click", function () {
-    inputValue = $("input").val()
+    inputValue = $("input").val().trim();
     if (!tagArray.includes(inputValue) && inputValue !== "") {
       tagArray.push(inputValue)
       addTagToPage(inputValue);
@@ -19,9 +19,20 @@ $(document).ready(function() {
 })
 
 function addGifs(title) {
-  
+  var queryURL = "http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=dc6zaTOxFJmzC&limit=5"
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).done(function(response) {
+    $(".gifDisplay").append();
+    $("#movie-view").html(JSON.stringify(response));
+  });
 }
 
 function addTagToPage(title) {
-  $("#tagList").append('<button class="btn tagButtons" id="' + title + '">' + title + '</button>');
+  var el = $("<button>");
+  el.addClass("btn");
+  el.attr("id",title);
+  el.html(title);
+  $("#tagList").append(el);
 }

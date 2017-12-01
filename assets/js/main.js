@@ -19,14 +19,14 @@ $(document).ready(function() {
 })
 
 function addGifs(title) {
-  var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + title + "&api_key=dc6zaTOxFJmzC"
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + title + "&api_key=dc6zaTOxFJmzC"
   $.ajax({
     url: queryURL,
     method: "GET"
   }).done(function(response) {
     var imgel = $("<img>");
     imgel.addClass("imgThumbnail");
-    imgel.attr("href", response.data[0].embed_url);
+    imgel.attr("src", response.data[0].embed_url);
     $("#gifDisplay").append(imgel);
   });
 }

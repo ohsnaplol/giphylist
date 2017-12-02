@@ -1,41 +1,31 @@
-var tagArray = ["dog", "cat"]
+var tagArray = ["dog", "cat", "hamster"];
 
 $(document).ready(function() {
   for (var i = 0; i < tagArray.length; i++) {
-    addTagToPage(tagArray[i]);
+    $("#tagList").append(`<button class="btn tagButtons" id="${tagArray[i]}">${tagArray[i]}</button>`);
   }
 
   $("#addBtn").on("click", function () {
     inputValue = $("input").val().trim();
     if (!tagArray.includes(inputValue) && inputValue !== "") {
-      tagArray.push(inputValue)
-      addTagToPage(inputValue);
+      $("#tagList").append(`<button class="btn tagButtons" id="${inputValue}">${inputValue}</button>`);
     }
   })
 
-  $(".tagButtons").on("click", function () {
+  $("#tagList").on("click", ".tagButtons", function() {
     addGifs($(this).attr("id"));
-  })
+  });
 })
 
 function addGifs(title) {
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + title + "&api_key=dc6zaTOxFJmzC"
+  $("#gifDisplay").empty();
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + title + "&limit=10&api_key=dc6zaTOxFJmzC"
   $.ajax({
     url: queryURL,
     method: "GET"
   }).done(function(response) {
-    var imgel = $("<img>");
-    imgel.addClass("imgThumbnail");
-    imgel.attr("src", response.data[0].embed_url);
-    $("#gifDisplay").append(imgel);
+    for (var i = 0; i < 10; i++) {
+      $("#gifDisplay").append(`<img class="img-thumbnail" src="${response.data[i].images.original.url}"</img>`);
+    }
   });
-}
-
-function addTagToPage(title) {
-  var el = $("<button>");
-  el.addClass("btn");
-  el.addClass("tagButtons");
-  el.attr("id",title);
-  el.html(title);
-  $("#tagList").append(el);
 }

@@ -1,4 +1,5 @@
 var tagArray = ["dog", "cat", "hamster"]; // default values
+var offset = -10; // addGifs makes this start at 0
 
 $(document).ready(function() {
   // fill tags with default values
@@ -29,7 +30,8 @@ $(document).ready(function() {
 
 function addGifs(title) {
   $("#gifDisplay").empty();
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + title + "&rating=pg&limit=10&api_key=dc6zaTOxFJmzC"
+  offset += 10;
+  var queryURL = `https://api.giphy.com/v1/gifs/search?q=${title}&offset=${offset}&rating=pg&limit=10&api_key=dc6zaTOxFJmzC`
   $.ajax({
     url: queryURL,
     method: "GET"

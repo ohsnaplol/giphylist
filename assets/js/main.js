@@ -7,7 +7,8 @@ $(document).ready(function() {
     $("#tagList").append(`<button class="btn tagButtons" id="${tagArray[i]}">${tagArray[i]}</button>`);
   }
   // get input and add it to tags array and html
-  $("#addBtn").on("click", function () {
+  $("#tagAdder").on("submit", function (event) {
+    event.preventDefault()
     inputValue = $("input").val().trim();
     if (!tagArray.includes(inputValue) && inputValue !== "") {
       tagArray.push(inputValue);
@@ -26,10 +27,6 @@ $(document).ready(function() {
       this.play();
     }
   });
-
-  $("#tagAdder").on('submit', function(event) {
-    event.preventDefault()
-  })
 })
 
 function addGifs(title) {

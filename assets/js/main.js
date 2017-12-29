@@ -14,6 +14,7 @@ $(document).ready(function() {
       tagArray.push(inputValue)
       $('#tagList').append(`<button class='btn tagButtons' id='${inputValue}'>${inputValue}</button>`)
     }
+    $('input').val('')
   })
   // on tag click, shows gifs
   $('#tagList').on('click', '.tagButtons', function() {

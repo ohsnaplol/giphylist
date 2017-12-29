@@ -26,6 +26,10 @@ $(document).ready(function() {
       this.play();
     }
   });
+
+  $("#tagAdder").on('submit', function(event) {
+    event.preventDefault()
+  })
 })
 
 function addGifs(title) {

@@ -1,0 +1,16 @@
+.btn {
+  margin: 8px;
+}
+
+.video {
+  height: 200px;
+  margin: 0 10px 0 0;
+}
+
+.rating {
+  font-size: 14px;
+}
+
+.imgDiv {
+  display: inline-block;
+}

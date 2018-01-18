@@ -17,6 +17,10 @@ $(document).ready(function() {
   $("#tagList").on("click", ".tagButtons", function() {
     addGifs($(this).attr("id"))
   })
+  // when they click the close button, remove the tag (WE SHOULD REMOVE IT FROM OTHER PLACES TOO!)
+  $("#tagList").on("click", ".close", function() {
+    console.log(`Let's close ${$(this).parent().remove()}`)
+  })
   // when clicked,
   $("#gifDisplay").on("click", ".video", function() {
     if (!this.paused) {

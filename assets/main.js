@@ -4,7 +4,11 @@ var offset = -10 // addGifs makes this start at 0
 $(document).ready(function() {
   // fill tags with default values
   for (var i = 0; i < tagArray.length; i++) {
-    $('#tagList').append(`<button class='btn tagButtons' id='${tagArray[i]}'>${tagArray[i]}</button>`)
+    $('#tagList').append(
+      `<button class='btn tagButtons' id='${tagArray[i]}'>
+         <img class="close" src="./assets/img/close.gif">
+         ${tagArray[i]}
+       </button>`)
   }
   // get input and add it to tags array and html
   $('#tagAdder').on('submit', function (event) {
@@ -12,7 +16,11 @@ $(document).ready(function() {
     inputValue = $('input').val().trim()
     if (!tagArray.includes(inputValue) && inputValue !== '') {
       tagArray.push(inputValue)
-      $('#tagList').append(`<button class='btn tagButtons' id='${inputValue}'>${inputValue}</button>`)
+      $('#tagList').append(
+        `<button class='btn tagButtons' id='${inputValue}'>
+           <img class="close" src="./assets/img/close.gif">
+             ${inputValue}
+         </button>`)
     }
     $('input').val('')
   })

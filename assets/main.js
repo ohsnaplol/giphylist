@@ -22,7 +22,7 @@ $(document).ready(function() {
              ${inputValue}
          </button>`)
     }
-    $('input').val('')
+    this.reset()
   })
   // on tag click, shows gifs
   $('#tagList').on('click', '.tagButtons', function() {

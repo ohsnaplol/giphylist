@@ -34,7 +34,7 @@ function addGifs(title) {
     url: queryURL,
     method: "GET"
   }).done(function(response) {
-    for (var i = 0 i < 10 i++) {
+    for (var i = 0; i < 10; i++) {
       $("#gifDisplay").append(`
         <div class="imgDiv">
           <span class="rating">Rating: ${response.data[i].rating}</span><br>

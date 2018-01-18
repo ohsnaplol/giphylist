@@ -11,18 +11,19 @@
   <body>
     <div class="container">
       <!-- Tag selection -->
-      <div class="row" id="tagList"></div>
+      <div class="row">
+        <div class="col-md-8" id="tagList"></div>
+        <!-- Tag adder -->
+        <form class="form-inline" id="tagAdder">
+          <input type="text" id="input" class="form-control">
+          <button type="submit" class="btn btn-primary" id="addBtn">Add tag</button>
+        </form>
+      </div>
       <!-- 2nd row -->
       <div class="row">
         <!-- Gif display -->
-        <div class="col-md-10" id="gifDisplay"></div>
-        <!-- Tag adder -->
-        <div class="col-md-2">
-          <input type="text" id="input" class="form-control"><br>
-          <button type="button" class="btn btn-primary" id="addBtn">Add tag</button>
-        </div>
+        <div id="gifDisplay"></div>
       </div>
-
     </div>
   </body>
 </html>

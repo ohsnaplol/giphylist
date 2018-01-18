@@ -3,7 +3,7 @@ var tagArray = ["dog", "cat", "hamster"]; // default values
 $(document).ready(function() {
   // fill tags with default values
   for (var i = 0; i < tagArray.length; i++) {
-    $("#tagList").append(`<button class="btn tagButtons" id="${tagArray[i]}">${tagArray[i]}</button>`);
+    $("#tagList").append(`<button class="btn tagButtons" id="${tagArray[i]}"><img class="close" src="./assets/img/close.gif">${tagArray[i]}</button>`);
   }
   // get input and add it to tags array and html
   $("#addBtn").on("click", function () {

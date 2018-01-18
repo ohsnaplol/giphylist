@@ -1,5 +1,19 @@
 .btn {
   margin: 8px;
+  position: relative;
+}
+
+.btn .close {
+  position: absolute;
+  display: none;
+  width: 12px;
+  top: 1px;
+  right: 1px;
+  z-index: 100;
+}
+
+.btn:hover .close {
+  display: inline-block;
 }
 
 .video {
